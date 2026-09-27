@@ -1,0 +1,19 @@
+# Logs (generados por scripts, no versionables)
+despliegues/logs/
+*/logs/
+
+# Archivos de ambiente (secretos)
+.env
+.env.*
+!.env.example
+
+# Temporales
+*.tmp
+*.bak
+*~
+
+# Directorios específicos de agentes (solo para despliegues)
+despliegues/.claude/
+
+# Deuda técnica (se versionan por carpeta, no en raíz)
+/deuda-tecnica*.md
