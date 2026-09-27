@@ -63,6 +63,14 @@ irreversible o que afecte producción; todo lo demás, proceder y reportar.
 - Confirmar que el servicio quedó sano (logs limpios, endpoint responde)
   antes de dar el deploy por terminado.
 
+## Repositorio de infraestructura
+
+- **Infraestructura del servidor** → `josh4costa/server-admin`
+  - Scripts de automatización (cron)
+  - Documentación de agentes
+  - Configuración compartida
+  - URL: https://github.com/josh4costa/server-admin
+
 ## Mapa de stacks -> repo GitHub
 - `/opt/stacks/asistencias` -> `josh4costa/asistencias-arboledas`
 - `/opt/stacks/nocodb` -> `josh4costa/nocodb`
