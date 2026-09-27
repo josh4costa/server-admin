@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker compose *)",
+      "Bash(cat)",
+      "Bash(bash /tmp/check_versions.sh)",
+      "Bash(docker image *)",
+      "Read(//tmp/**)",
+      "Bash(timeout 60 bash -c 'until docker compose logs metabase 2>&1 | grep -q \"metabase.core.*Metabase.*initialized\"; do sleep 2; done')",
+      "Bash(curl -s http://localhost:8080/api/v1/health)",
+      "Bash(curl -s -I http://localhost:8080/)",
+      "Bash(bash /tmp/health_check.sh)",
+      "Bash(/opt/server_admin/aplicaciones/health_check_daily.sh)",
+      "Bash(timeout 30 /opt/server_admin/aplicaciones/versions_weekly.sh)",
+      "Bash(/opt/server_admin/aplicaciones/errors_monitor.sh)"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod 600 /opt/backups/.env)",
+      "Bash(bash -n /opt/backups/respaldar_motores.sh)",
+      "Bash(sudo chown root:root /opt/backups/.env)",
+      "Bash(sudo crontab -l)",
+      "Bash(systemctl list-timers *)",
+      "Bash(crontab -l)",
+      "Bash(systemctl list-units *)",
+      "Bash(journalctl -u cron --no-pager)",
+      "Bash(chmod +x /opt/backups/retention_aquacontrol.sh)",
+      "Bash(bash retention_aquacontrol.sh)",
+      "Bash(bash -n /opt/backups/retention_aquacontrol.sh)",
+      "Bash(chmod +x /opt/backups/verify_restore.sh)",
+      "Bash(bash verify_restore.sh)"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker-compose logs *)",
+      "Bash(curl -s https://api.ipify.org)",
+      "Bash(dig +short *)",
+      "Bash(dig *)",
+      "Bash(python3)",
+      "Bash(docker-compose restart *)",
+      "Bash(env)"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(apt update *)",
+      "Bash(apt list *)",
+      "Bash(sudo apt list --upgradable 2>&1)",
+      "Skill(update-config)",
+      "Bash(sudo -l)",
+      "Bash(sudo apt update)",
+      "Bash(sudo apt upgrade -y 2>&1)",
+      "Bash(sudo needrestart -r a)",
+      "Bash(sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y)",
+      "Bash(sudo bash -c 'DEBIAN_FRONTEND=noninteractive apt upgrade -y')",
+      "Bash(sudo pkill -f whiptail)",
+      "Bash(sudo -n apt --version)",
+      "Bash(sudo -n bash -c 'cat > /etc/default/keyboard << EOF *)",
+      "Bash(ps -eo etime,cmd)",
+      "Bash(sudo -n pkill -9 whiptail)",
+      "Bash(sudo -n apt list --upgradable)",
+      "Bash(sudo -n reboot)",
+      "Bash(dpkg -l)",
+      "Bash(crontab -l)",
+      "Bash(chmod +x /opt/server_admin/actualizaciones/scripts/check-updates.sh)",
+      "Bash(/opt/server_admin/actualizaciones/scripts/check-updates.sh)"
+    ]
+  }
+}
