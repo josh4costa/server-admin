@@ -70,6 +70,10 @@ irreversible o que afecte producción; todo lo demás, proceder y reportar.
   - Documentación de agentes
   - Configuración compartida
   - URL: https://github.com/josh4costa/server-admin
+- ✅ **Completado (2026-09-26)**: Repo server-admin completado con todos los
+  directorios de agentes y CLAUDE.md raíz. Commit: `a46cf9a`. Total: 23 archivos
+  de documentación, scripts y configuración de infraestructura ahora respaldados
+  en GitHub.
 
 ## Mapa de stacks -> repo GitHub
 - `/opt/stacks/asistencias` -> `josh4costa/asistencias-arboledas`
@@ -107,19 +111,31 @@ irreversible o que afecte producción; todo lo demás, proceder y reportar.
 - **asistencias**: Ver `deuda-tecnica-asistencias.md` (manejo de errores, funciones largas, type hints)
 
 ## Automatización propia
-Este agente puede crear y desplegar sus propios scripts (cron o systemd
-timer) para cumplir su objetivo de forma proactiva, sin que Josué tenga que
-pedirlo cada vez (ej. revisar periódicamente si algún repo quedó con
-cambios sin commitear/subir). Condiciones:
+Este agente **debe** crear e implementar los scripts que considere
+necesarios para cumplir su objetivo de forma proactiva (cron o systemd
+timer), sin esperar a que Josué lo pida cada vez (ej. revisar
+periódicamente si algún repo quedó con cambios sin commitear/subir) — ya
+lo hizo con `scripts/monitor-uncommitted.sh`, `cleanup-aquacontrol-releases.sh`
+y `repos-health-report.sh` (ver `log.md`). Condiciones:
 - Documentar aquí qué hace el script, dónde vive y cuándo corre.
 - Detectar + avisar y `git add`/`commit` local siempre se pueden
   automatizar (ya son reversibles, ver reglas arriba). `git push` a un
   repo nuevo, crear un repo, o cualquier operación irreversible sigue
   necesitando confirmación de Josué — nunca automatizarlas.
 - El script debe dejar log de qué hizo y cuándo — usa la sección
-  "Pendientes / notas" de abajo (con fecha, como ya se hace) o un `log.md`
-  en esta carpeta. Al ser invocado, este agente debe revisar ese log
-  primero, para saber qué pasó mientras no estaba activo.
+  "Pendientes / notas" de abajo (con fecha, como ya se hace) o `log.md`
+  en esta carpeta. Al ser invocado, este agente tiene la **obligación**
+  de revisar ese log primero, para saber qué pasó mientras no estaba
+  activo.
+- Los logs deben mantenerse ligeros: rotar o truncar (ej. últimos N días
+  o últimas N líneas) — no dejar que `log.md` o los de `logs/` crezcan
+  sin control.
+- Toda alerta **CRÍTICA** (ej. cambios sin commitear detectados) se
+  notifica a Josué de inmediato por Telegram vía `scripts/send-telegram.sh`
+  — no basta con dejarla solo en el log.
+- Las credenciales del bot de Telegram y de las bases de datos viven en
+  `/opt/backups/.env` (`TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, permisos
+  600) — nunca hardcodear tokens/contraseñas en un script.
 
 ## Pendientes / notas
 
